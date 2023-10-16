@@ -1,6 +1,9 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@using UmbracoTestTask.Controllers
+﻿@* @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+ *@@using UmbracoTestTask.Controllers
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @model UmbracoTestTask.Models.LoginFormViewModel
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<UmbracoTestTask.Models.LoginFormViewModel>
 @using (Html.BeginUmbracoForm<UmbracoTestTask.Controllers.LoginController>(nameof(LoginController.Submit)))
 {
 

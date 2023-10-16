@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using J2N;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+using System.Text.Json;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Routing;
@@ -23,13 +26,26 @@ namespace UmbracoTestTask.Controllers
         { }
 
         [HttpPost]
-        public IActionResult Submit(LoginFormViewModel model)
+        public async Task<IActionResult> Submit(LoginFormViewModel model)
         {
+            Debug.WriteLine(model.Username);
+            Debug.WriteLine(model.Password);
             if (!ModelState.IsValid)
             {
+                Debug.WriteLine("Not valid");
                 return CurrentUmbracoPage();
             }
-
+            var client = new IICU.ICUTechClient();
+            var ans = await client.LoginAsync(model.Username, model.Password, "");
+            var props = JsonDocument.Parse(ans.@return);
+            try
+            {
+                props.RootElement.GetProperty("EntityId").GetString();
+                Debug.WriteLine(ans.@return);
+            }catch (KeyNotFoundException)
+            {
+                Debug.WriteLine("User not found");
+            }
             return RedirectToCurrentUmbracoPage();
         }
     }
