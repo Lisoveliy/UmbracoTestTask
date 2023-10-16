@@ -40,7 +40,7 @@
     @await Umbraco.RenderMacroAsync("LoginForm")
     </main>
     
-    @if (Model._IsLogged)
+    @if (Model._IsLogging)
     {
         <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
             <div class="toast show align-items-center text-white @(Model._Answer != string.Empty ? "bg-success" : "bg-danger") fade-in" role="alert" aria-live="assertive" aria-atomic="true">

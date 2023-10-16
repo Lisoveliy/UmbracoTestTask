@@ -47,7 +47,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		{
 			_publishedValueFallback = publishedValueFallback;
 			_Answer = Answer;
-			_IsLogged = IsLogged;
+			_IsLogging = IsLogged;
 		}
 
 		// properties
@@ -67,7 +67,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[ImplementPropertyType("isLogged")]
 		public virtual bool IsLogged => this.Value<bool>(_publishedValueFallback, "isLogged");
 		public string _Answer { get; set; } = string.Empty;
-		public bool _IsLogged { get; set; } = false;
+		public bool _IsLogging { get; set; } = false;
 		public EntityModel model { get; set; }
 		public void DesealizeModel()
 		{

@@ -1,3 +1,5 @@
+using UmbracoTestTask.Services;
+
 namespace UmbracoTestTask
 {
     public class Startup
@@ -33,8 +35,7 @@ namespace UmbracoTestTask
                 .AddBackOffice()
                 .AddWebsite()
                 .AddDeliveryApi()
-                .AddComposers()
-                .Build();
+                .AddComposers().Build();
         }
 
         /// <summary>
