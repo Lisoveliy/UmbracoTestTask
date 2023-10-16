@@ -9,15 +9,16 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
 @{
     int linkscount = 3;
-    <div class="container">
+    <header class="container">
         <div class="row row-cols-auto">
             <div class="col">
                 <h1>LOGOTYPE</h1>
             </div>
+            <div class="row row-cols-auto">
             @for (int i = 1; i <= linkscount; i++)
             {
                 <div class="col" style="margin: auto 0">
-                    <a class="breadcrumb-item" href="/" style="height: 100%">Home @i</a>
+                    <a class="breadcrumb-item" href="/" style="height: 100%;font-size: 2ch">Home @i</a>
                 </div>
                 @if (i < linkscount)
                 {
@@ -26,11 +27,14 @@
                     </div>
                 }
             }
+            </div>
         </div>
-    </div>
+    </header>
     <hr />
-
+    <main class="container">
     @await Umbraco.RenderMacroAsync("LoginForm")
+    </main>
+    
     @if (Model._IsLogged)
     {
         <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
