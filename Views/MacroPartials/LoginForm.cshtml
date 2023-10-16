@@ -3,5 +3,5 @@
 @using UmbracoTestTask.Models;
 
 @{
-    Html.RenderPartial("~/Views/Partials/Login form.cshtml", new LoginFormViewModel());
+    await Html.RenderPartialAsync("~/Views/Partials/LoginForm.cshtml", new LoginFormViewModel());
 }

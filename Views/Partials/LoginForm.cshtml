@@ -1,26 +1,17 @@
-﻿@* @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
- *@@using UmbracoTestTask.Controllers
+﻿@using UmbracoTestTask.Controllers
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @model UmbracoTestTask.Models.LoginFormViewModel
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<UmbracoTestTask.Models.LoginFormViewModel>
 @using (Html.BeginUmbracoForm<UmbracoTestTask.Controllers.LoginController>(nameof(LoginController.Submit)))
 {
-    <script>
-        function showLoad() {
-            document.getElementById("submit").style = 'display: none'
-            document.getElementById("loadingbutton").style = 'width: 10em; margin: auto'
-        }
-    </script>
+<script src="/scripts/ButtonLoading.js" async></script>
     <div class="container border mx-auto" style="max-width: 30em">
         <div class="col p-5 d-grid gap-2">
             <div class="row">
                 <label for="Username">Username:</label>
             </div>
             <div class="row">
-
-
-
                 <input id="Username" asp-for="Username" class="form-control" type="text" name="Username" />
             </div>
             <div class="row">
