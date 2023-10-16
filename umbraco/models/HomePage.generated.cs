@@ -15,6 +15,7 @@ using Umbraco.Cms.Core.PublishedCache;
 using Umbraco.Cms.Infrastructure.ModelsBuilder;
 using Umbraco.Cms.Core;
 using Umbraco.Extensions;
+using UmbracoTestTask.Models;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
@@ -67,5 +68,10 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual bool IsLogged => this.Value<bool>(_publishedValueFallback, "isLogged");
 		public string _Answer { get; set; } = string.Empty;
 		public bool _IsLogged { get; set; } = false;
-	}
+		public EntityModel model { get; set; }
+		public void DesealizeModel()
+		{
+            model = System.Text.Json.JsonSerializer.Deserialize<EntityModel>(_Answer);
+        }
+    }
 }

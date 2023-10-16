@@ -6,7 +6,6 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<UmbracoTestTask.Models.LoginFormViewModel>
 @using (Html.BeginUmbracoForm<UmbracoTestTask.Controllers.LoginController>(nameof(LoginController.Submit)))
 {
-    bool loading = false;
     <script>
         function showLoad() {
             document.getElementById("submit").style = 'display: none'

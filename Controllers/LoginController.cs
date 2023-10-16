@@ -52,14 +52,13 @@ namespace UmbracoTestTask.Controllers
             {
                 props.RootElement.GetProperty("EntityId").GetInt32();
                 productViewModel._Answer = ans.@return;
+                productViewModel.DesealizeModel();
             }
             catch (KeyNotFoundException)
             {
                 Debug.WriteLine("User not found");
             }
             return View("Views/HomePage.cshtml", productViewModel);
-
-            //return RedirectToCurrentUmbracoPage(new QueryString("?status=\"" + ans.@return + "\""));
         }
     }
 }
