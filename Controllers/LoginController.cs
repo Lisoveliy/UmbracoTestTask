@@ -44,20 +44,20 @@ namespace UmbracoTestTask.Controllers
             var client = new IICU.ICUTechClient();
             var ans = await client.LoginAsync(model.Username, model.Password, "");
             var props = JsonDocument.Parse(ans.@return);
-            //var productViewModel = new HomePage(CurrentPage, new PublishedValueFallback(serviceContext, variationContextAccessor))
-            //{
-            //    IsLogged = true,
-            //}
+            var productViewModel = new HomePage(CurrentPage, new PublishedValueFallback(serviceContext, variationContextAccessor))
+            {
+                _IsLogged = true
+            };
             try
             {
                 props.RootElement.GetProperty("EntityId").GetInt32();
-                Debug.WriteLine(ans.@return);
+                productViewModel._Answer = ans.@return;
             }
             catch (KeyNotFoundException)
             {
                 Debug.WriteLine("User not found");
             }
-            return View("Views/HomePage.cshtml");
+            return View("Views/HomePage.cshtml", productViewModel);
 
             //return RedirectToCurrentUmbracoPage(new QueryString("?status=\"" + ans.@return + "\""));
         }

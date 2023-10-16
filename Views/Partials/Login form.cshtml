@@ -6,25 +6,34 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<UmbracoTestTask.Models.LoginFormViewModel>
 @using (Html.BeginUmbracoForm<UmbracoTestTask.Controllers.LoginController>(nameof(LoginController.Submit)))
 {
-
-@*     <form method="POST" action="/ad">
- *@        <div class="container border mx-auto" style="width: 30em">
-            <div class="col p-5 d-grid gap-2">
+    bool loading = false;
+    <script>
+        function showLoad() {
+            document.getElementById("submit").style = 'display: none'
+            document.getElementById("loadingbutton").style = 'width: 10em; margin: auto'
+        }
+    </script>
+    <div class="container border mx-auto" style="width: 30em">
+        <div class="col p-5 d-grid gap-2">
             <div class="row">
                 <label for="Username">Username:</label>
             </div>
             <div class="row">
-                <input id="Username" asp-for="Username" class="form-control" type="text" name="Username"/>
+                <input id="Username" asp-for="Username" class="form-control" type="text" name="Username" />
             </div>
             <div class="row">
                 <label for="Password">Password:</label>
             </div>
             <div class="row">
-                    <input id="Password" asp-for="Password" class="form-control" type="password" name="Password" />
+                <input id="Password" asp-for="Password" class="form-control" type="password" name="Password" />
             </div>
             <div class="row mt-3">
-            <button class="btn btn-primary" type="submit" name="Submit" style="width: 10em; margin: auto" >Submit</button>
-                </div>
+                <button id="submit" class="btn btn-primary" type="submit" name="Submit" style="width: 10em; margin: auto" onclick="showLoad()">Submit</button>
+                <button class="btn btn-primary" type="button" id="loadingbutton" style="width: 10em; margin: auto; display: none" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <span class="visually-hidden">Loading...</span>
+                </button>
+            </div>
         </div>
-        </div>
+    </div>
 }

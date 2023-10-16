@@ -45,6 +45,8 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
+			_Answer = Answer;
+			_IsLogged = IsLogged;
 		}
 
 		// properties
@@ -63,5 +65,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		[ImplementPropertyType("isLogged")]
 		public virtual bool IsLogged => this.Value<bool>(_publishedValueFallback, "isLogged");
+		public string _Answer { get; set; } = string.Empty;
+		public bool _IsLogged { get; set; } = false;
 	}
 }
