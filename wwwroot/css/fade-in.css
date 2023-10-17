@@ -1,4 +1,5 @@
 .fade-in {
+    opacity: 0;
     animation: fadeIn ease 1.5s;
     -webkit-animation: fadeIn ease 1.5s;
     -moz-animation: fadeIn ease 1.5s;

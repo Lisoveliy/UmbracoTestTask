@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using UmbracoTestTask.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Login</title>
@@ -8,10 +12,6 @@
     <link href="@Url.Content("~/css/fade-in.css")" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 </head>
 <body>
-@using Umbraco.Cms.Web.Common.PublishedModels;
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
-@using UmbracoTestTask.Models;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
 @{
     int linkscount = 3;
     <header class="container">
